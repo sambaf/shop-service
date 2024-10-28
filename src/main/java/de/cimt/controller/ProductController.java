@@ -36,9 +36,9 @@ public class ProductController {
   public Product createProduct(@RequestBody Product product) {
     return productService.save(product);
   }
-  @DeleteMapping("/id")
+  @DeleteMapping("/{id}")
   @PreAuthorize("hasAuthority('ADMIN')")
-  public void deleteProduct(Long id) {
+  public void deleteProduct(@PathVariable Long id) {
     productService.deleteById(id);
   }
 }
